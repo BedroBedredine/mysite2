@@ -2,7 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Home 01</title>
+	<!-- ######<title>{{sitename}}</title>####### -->
+	<!-- ####{% for i in site ###
+	<title>{{i.name}}</title>
+	{% endfor ### -->
+	{% block headblock %}
+	{% endblock %}
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -46,7 +51,7 @@
 							</span>
 						</span>
 
-						<a href="#" class="left-topbar-item">
+						<a href="/about" class="left-topbar-item">
 							About
 						</a>
 
@@ -64,23 +69,15 @@
 					</div>
 
 					<div class="right-topbar">
-						<a href="#">
+						<a href="{{site.fb}}">
 							<span class="fab fa-facebook-f"></span>
 						</a>
 
-						<a href="#">
+						<a href="{{site.tw}}">
 							<span class="fab fa-twitter"></span>
 						</a>
 
-						<a href="#">
-							<span class="fab fa-pinterest-p"></span>
-						</a>
-
-						<a href="#">
-							<span class="fab fa-vimeo-v"></span>
-						</a>
-
-						<a href="#">
+						<a href="{{site.yt}}">
 							<span class="fab fa-youtube"></span>
 						</a>
 					</div>
@@ -91,7 +88,7 @@
 			<div class="wrap-header-mobile">
 				<!-- Logo moblie -->		
 				<div class="logo-mobile">
-					<a href="index.html"><img src="{% static 'images/icons/logo-01.png'%}" alt="IMG-LOGO"></a>
+					<a href="/"><img src="{% static 'images/icons/logo-01.png'%}" alt="IMG-LOGO"></a>
 				</div>
 
 				<!-- Button show menu -->
@@ -138,23 +135,15 @@
 					</li>
 
 					<li class="right-topbar">
-						<a href="#">
+						<a href=" {{site.fb}} ">
 							<span class="fab fa-facebook-f"></span>
 						</a>
 
-						<a href="#">
+						<a href="{{site.tw}}">
 							<span class="fab fa-twitter"></span>
 						</a>
 
-						<a href="#">
-							<span class="fab fa-pinterest-p"></span>
-						</a>
-
-						<a href="#">
-							<span class="fab fa-vimeo-v"></span>
-						</a>
-
-						<a href="#">
+						<a href="{{site.yt}}">
 							<span class="fab fa-youtube"></span>
 						</a>
 					</li>
@@ -162,7 +151,7 @@
 
 				<ul class="main-menu-m">
 					<li>
-						<a href="index.html">Home</a>
+						<a href="/">Home</a>
 						<ul class="sub-menu-m">
 							<li><a href="index.html">Homepage v1</a></li>
 							<li><a href="home-02.html">Homepage v2</a></li>
@@ -223,7 +212,7 @@
 			<div class="wrap-logo container">
 				<!-- Logo desktop -->		
 				<div class="logo">
-					<a href="index.html"><img src="{% static 'images/icons/logo-01.png'%}" alt="LOGO"></a>
+					<a href="/"><img src="{% static 'images/icons/logo-01.png'%}" alt="LOGO"></a>
 				</div>	
 
 				<!-- Banner -->
@@ -237,15 +226,15 @@
 				<div class="main-nav">
 					<!-- Menu desktop -->
 					<nav class="menu-desktop">
-						<a class="logo-stick" href="index.html">
+						<a class="logo-stick" href="/">
 							<img src="{% static 'images/icons/logo-01.png'%}" alt="LOGO">
 						</a>
 
 						<ul class="main-menu">
 							<li class="main-menu-active">
-								<a href="index.html">Home</a>
+								<a href="/">Home</a>
 								<ul class="sub-menu">
-									<li><a href="index.html">Homepage v1</a></li>
+									<li><a href="/">Homepage v1</a></li>
 									<li><a href="home-02.html">Homepage v2</a></li>
 									<li><a href="home-03.html">Homepage v3</a></li>
 								</ul>
@@ -2321,31 +2310,23 @@
 
 						<div>
 							<p class="f1-s-1 cl11 p-b-16">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor magna eget elit efficitur, at accumsan sem placerat. Nulla tellus libero, mattis nec molestie at, facilisis ut turpis. Vestibulum dolor metus, tincidunt eget odio
+								{{site.about}}
 							</p>
 
 							<p class="f1-s-1 cl11 p-b-16">
-								Any questions? Call us on (+1) 96 716 6879
+								Tell : {{site.tell}}
 							</p>
 
 							<div class="p-t-15">
-								<a href="#" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+								<a href="{{site.fb}}" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
 									<span class="fab fa-facebook-f"></span>
 								</a>
 
-								<a href="#" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+								<a href="{{site.fb}}" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
 									<span class="fab fa-twitter"></span>
 								</a>
 
-								<a href="#" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
-									<span class="fab fa-pinterest-p"></span>
-								</a>
-
-								<a href="#" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
-									<span class="fab fa-vimeo-v"></span>
-								</a>
-
-								<a href="#" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+								<a href="{{site.fb}}" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
 									<span class="fab fa-youtube"></span>
 								</a>
 							</div>
@@ -2465,7 +2446,7 @@
 					Copyright © 2020 
 
 					<a href="#" class="f1-s-1 cl10 hov-link1"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" target="_blank">My Team</a>
+Copyright &copy; All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="{{site.link}}" target="_blank">My Team</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 				</span>
 			</div>
