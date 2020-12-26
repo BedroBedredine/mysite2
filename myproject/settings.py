@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     #app
     'main',
+    'news',
 ]
 
 MIDDLEWARE = [
