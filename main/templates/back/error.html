@@ -1,0 +1,24 @@
+{%extends 'back/master.html'%}
+{%load static%}
+
+
+{%block mainblock%}
+    <!-- Page content -->
+    <div id="page-content">
+        <!-- Datatables Header -->
+        <div class="content-header">
+            <div class="header-section">
+                <h1>
+                    <i class="fa fa-table"></i>Error<br><small>{{error}}</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+        <!-- END Datatables Header -->
+
+{%endblock%}
+
+{%block footerblock%}
+    <script src="{% static 'back/js/pages/tablesDatatables.js' %}"></script>
+    <script>$(function(){ TablesDatatables.init(); });</script>
+{%endblock%}
