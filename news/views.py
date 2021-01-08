@@ -3,6 +3,7 @@ from .models import News
 from main.models import Main
 from django.core.files.storage import FileSystemStorage
 import datetime
+from subcat.models import SubCat
 
 # Create your views here.
 
@@ -34,6 +35,8 @@ def news_add(request):
 
     today = str(year) + "/" + str(month) + "/" + str(day) 
     time = str(now.hour) + ":" + str(now.minute)
+
+    cat = SubCat.objects.all()
     
     
     if request.method == 'POST':
@@ -42,6 +45,7 @@ def news_add(request):
         newscat = request.POST.get('newscat')
         newstxtshort = request.POST.get('newstxtshort')
         newstxt = request.POST.get('newstxt')
+        newsid = request.POST.get('newscat')
 
         if newstitle == "" or newstxtshort == "" or newstxt == "" or newscat == "":
             error = "All Fields Requirded"
@@ -57,8 +61,8 @@ def news_add(request):
             if str(myfile.content_type).startswith("image"):
 
                 if myfile.size < 5000000 :
-
-                    b = News(name=newstitle, short_text=newstxtshort, body_text=newstxt, date =today ,picname=filename, picurl=url, writer =".", catname=newscat, catid=0 , show=0, time= time )
+                    newsname = SubCat.objects.get(pk=newsid).name
+                    b = News(name=newstitle, short_text=newstxtshort, body_text=newstxt, date =today ,picname=filename, picurl=url, writer =".", catname=newsname, catid=newsid , show=0, time= time )
                     b.save()
                     return redirect('news_list')
 
@@ -81,7 +85,7 @@ def news_add(request):
             error = "Please Input Your Image"
             return render(request, 'back/error.html', {'error':error})
         
-    return render(request, 'back/news_add.html',)
+    return render(request, 'back/news_add.html',{'cat':cat})
 
 
 def news_delete(request,pk):
