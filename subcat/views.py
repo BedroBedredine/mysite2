@@ -30,9 +30,4 @@ def subcat_add(request):
         b.save()
         return redirect('subcat_list')
 
-        
-        
-
-
-    
     return render(request,'back/subcat_add.html', {'cat':cat})
