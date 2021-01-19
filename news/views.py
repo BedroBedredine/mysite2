@@ -63,7 +63,7 @@ def news_add(request):
 
                 if myfile.size < 5000000 :
                     newsname = SubCat.objects.get(pk=newsid).name
-                    b = News(name=newstitle, short_text=newstxtshort, body_text=newstxt, date =today ,picname=filename, picurl=url, writer =".", catname=newsname, catid=newsid , show=0, time= time )
+                    b = News(name=newstitle, short_txt=newstxtshort, body_txt=newstxt, date =today ,picname=filename, picurl=url, writer =".", catname=newsname, catid=newsid , show=0, time= time )
                     b.save()
                     return redirect('news_list')
 
@@ -142,8 +142,8 @@ def news_edit(request,pk):
                     fss.delete(b.picname)
 
                     b.name = newstitle
-                    b.short_text = newstxtshort
-                    b.body_text = newstxt
+                    b.short_txt = newstxtshort
+                    b.body_txt = newstxt
                     b.picname = filename
                     b.picurl = url
                     b.catname = newsname
@@ -173,8 +173,8 @@ def news_edit(request,pk):
             b = News.objects.get(pk=pk)
             
             b.name = newstitle
-            b.short_text = newstxtshort
-            b.body_text = newstxt
+            b.short_txt = newstxtshort
+            b.body_txt = newstxt
             b.catname = newsname
             b.catid = newsid
 

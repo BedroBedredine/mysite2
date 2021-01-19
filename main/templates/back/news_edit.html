@@ -53,18 +53,22 @@
                                 <textarea type="text" id="newstxtshort" name="newstxtshort" rows="5" class="form-control" placeholder="Short text"> {{news.short_txt}} </textarea>
                             </div>
                         </div>
+                            <script>
+                                CKEDITOR.replace( 'newstxtshort' );
+                            </script>
                         <div class="form-group">
                             <div class="col-md-12">
                                 <textarea type="text" id="newstxt" name="newstxt" rows="5" class="form-control" placeholder="body of text"> {{news.body_txt}} </textarea>
                             </div>
                         </div>
-                        <script>
-                            CKEDITOR.replace( 'newstxt' );
-                        </script>
+                            <script>
+                                CKEDITOR.replace( 'newstxt' );
+                            </script>
                         <div class="form-group">
                             <div class="col-md-3">
                                 <input type="file" id="myfile" name="myfile" rows="5" class="form-control" placeholder="body of text"></input>
                             </div>
+                            
                             <div class="col-md-3">
                                 <img src=" {{news.picurl}} " style="display: inline-block; width:300px; height: 300px; " alt="">
                             </div>
